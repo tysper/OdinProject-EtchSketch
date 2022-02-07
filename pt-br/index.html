@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="../script.js" defer></script>
+    <title>Odin Project - Etch Sketch</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div class="container c__window">
+      <div class="c__toolbar">
+        <button class="btn pencil__btn">Lápis</button>
+        <button class="btn rainbow__btn">Colorido</button>
+        <button class="btn gradient__btn">Gradiente</button>
+        <button class="btn eraser__btn">Borracha</button>
+        <button class="btn clear__btn">Limpar <br />Tela</button>
+        <div class="c__input">
+          <input type="color" class="input color__input" />
+        </div>
+        <div class="visualizer__container">
+          <span class="grid__visualizer">16</span
+          ><span style="font-size: 1.2rem">x</span
+          ><span class="grid__visualizer">16</span>
+        </div>
+        <input
+          class="range__slider"
+          value="16"
+          type="range"
+          min="16"
+          max="80"
+        />
+      </div>
+      <div class="c__drawing" style="--cols: 20; --rows: 20"></div>
+    </div>
+    <footer>&copy; Pedro Paulo Nunes - Idea from "The odin Project"</footer>
+  </body>
+</html>
