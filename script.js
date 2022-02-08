@@ -152,3 +152,12 @@ rangeSliderEl.onchange = function () {
 };
 
 updateCurrentMode(pencilMode);
+
+// for mobile
+window.ontouchstart = function () {
+  mouseDown = true;
+};
+
+window.ontouchend = function () {
+  mouseDown = false;
+};
