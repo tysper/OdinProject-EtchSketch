@@ -20,6 +20,7 @@ let mouseDown = false;
 let currentColor = "black";
 let currentMode = "pencil";
 let currentGradient = 100;
+let currentMobileMode = pencilMode;
 
 // check whether mouse is up or down
 window.onmousedown = function () {
@@ -29,6 +30,15 @@ window.onmouseup = function () {
   mouseDown = false;
 };
 
+// for mobile
+let touchDown = false;
+window.ontouchstart = function () {
+  touchDown = true;
+};
+
+window.ontouchend = function () {
+  touchDown = false;
+};
 // INITIAL SETTING
 function createGridItems(gridSize) {
   for (let i = 0; i < gridSize; i++) {
@@ -99,6 +109,7 @@ function eraserMode() {
 }
 
 function updateCurrentMode(mode) {
+  currentMobileMode = mode;
   updateGridItemsValue();
   removeEvents();
   gridItems.forEach((el) => {
@@ -113,6 +124,17 @@ function updateCurrentMode(mode) {
     el.addEventListener("mousedown", () => {
       el.style.backgroundColor = mode();
     });
+
+    // mobile
+    // el.addEventListener("touchmove", (e) => {
+    //   if (touchDown) {
+    //     console.log(e.targetTouches);
+    //     el.style.backgroundColor = mode();
+    //   }
+    // });
+    // el.addEventListener("touchstart", () => {
+    //   el.style.backgroundColor = mode();
+    // });
   });
 }
 
@@ -153,11 +175,11 @@ rangeSliderEl.onchange = function () {
 
 updateCurrentMode(pencilMode);
 
-// for mobile
-window.ontouchstart = function () {
-  mouseDown = true;
-};
-
-window.ontouchend = function () {
-  mouseDown = false;
-};
+window.addEventListener("touchmove", (e) => {
+  const y = e.touches[0].screenY;
+  const x = e.touches[0].screenX;
+  const gridItem = document.elementFromPoint(x, y);
+  if (gridItem.classList.contains("grid-item") && touchDown === true) {
+    gridItem.style.backgroundColor = currentMobileMode();
+  }
+});

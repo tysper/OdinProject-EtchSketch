@@ -145,6 +145,10 @@ footer {
     max-width: 80vw;
   } */
 
+  html {
+    overflow: hidden;
+  }
+
   .c__toolbar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
