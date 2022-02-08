@@ -148,7 +148,6 @@ function updateGridSize(grid) {
 btnModes.forEach((x) => {
   const [el, mode] = x;
   el.addEventListener("click", () => {
-    console.log(mode);
     updateCurrentMode(mode);
   });
 });
@@ -176,6 +175,7 @@ rangeSliderEl.onchange = function () {
 updateCurrentMode(pencilMode);
 
 window.addEventListener("touchmove", (e) => {
+  // e.preventDefault();
   const y = e.touches[0].screenY;
   const x = e.touches[0].screenX;
   const gridItem = document.elementFromPoint(x, y);

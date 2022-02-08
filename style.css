@@ -144,7 +144,10 @@ footer {
   /* .c__window {
     max-width: 80vw;
   } */
-
+  body {
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
   html {
     overflow: hidden;
   }
