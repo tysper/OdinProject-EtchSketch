@@ -144,13 +144,15 @@ footer {
   /* .c__window {
     max-width: 80vw;
   } */
-  html {
-    height: 100vh;
-  }
+
+  html,
   body {
-    height: 100vh;
+    height: 100%;
   }
 
+  .c__window {
+    margin: auto;
+  }
   .c__toolbar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -165,5 +167,8 @@ footer {
 
   .btn {
     width: 100%;
+  }
+  footer {
+    margin-bottom: 1rem;
   }
 }
